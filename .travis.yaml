@@ -1,0 +1,8 @@
+language: generic
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t fernandesyuri/docker-k8s-course -f Dockerfile.dev .
+script:
+  - docker run -e CI=true fernandesyuri/docker-k8s-course npm run test
